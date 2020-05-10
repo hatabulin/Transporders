@@ -52,8 +52,7 @@ Widget itemList({Color color}) {
                 size: 30,
               ),
               title: Text('Volkswagen',
-                  style: TextStyle(
-                      fontSize: 20.0, color: Colors.white, fontFamily: 'bold'),
+                  style: TextStyle(fontSize: 20.0, color: Colors.white, fontFamily: 'bold'),
                   textAlign: TextAlign.left),
               subtitle: Text("PAN 680566546049")),
         ),
@@ -71,7 +70,7 @@ Widget itemList({Color color}) {
             child: Column(
               children: <Widget>[
                 Container(
-                margin: EdgeInsets.only(top:10),
+                  margin: EdgeInsets.only(top:10),
                   alignment: Alignment.topCenter,
                   child: Text(
                     "Шереметьево 1/2-Солнечногорск",
@@ -103,9 +102,9 @@ Widget itemList({Color color}) {
                       ),
                       Container(
                           child: Icon(
-                        Icons.help_outline,
-                        size: 25,
-                      )),
+                            Icons.help_outline,
+                            size: 25,
+                          )),
                       Container(
                         child: Switch(
                           value: checkBoxValue,
@@ -132,9 +131,9 @@ Widget itemList({Color color}) {
                       ),
                       Container(
                           child: Icon(
-                        Icons.help_outline,
-                        size: 25,
-                      )),
+                            Icons.help_outline,
+                            size: 25,
+                          )),
                       Container(
                         child: Switch(
                           value: checkBoxValue,
@@ -164,7 +163,7 @@ Widget itemList({Color color}) {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(right: 20),
+                            margin: EdgeInsets.only(right: 20),
                             child: Icon(
                               Icons.beenhere,
                               size: 25,

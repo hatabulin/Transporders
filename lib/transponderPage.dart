@@ -2,11 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:transporderapp/styles/appStyles.dart';
 import 'file:///D:/work/development/AndroidStudio/Projects/transporder_app/lib/ui/abonements/abonementsListFragment.dart';
+import 'package:transporderapp/ui/abonements/abonementBuyFragment.dart';
+import 'package:transporderapp/ui/abonements/abonementBuySelectedFragment.dart';
 
 class TransponderScreen extends StatelessWidget {
   Function backPressed;
 
+//  String appBarTitle = "Абонементы";
+  String appBarTitle = "Купить абонементы";
+
   TransponderScreen();
+//  AbonementBuyFragment();
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +23,7 @@ class TransponderScreen extends StatelessWidget {
           padding: EdgeInsets.only(left: 16.0),
           child: Row(
             children: [
-              Text("Абонементы", style: TextStyle(color: appNormalTextColor))
+              Text(appBarTitle, style: TextStyle(color: appNormalTextColor))
             ],
           ),
         ),
@@ -32,7 +38,9 @@ class TransponderScreen extends StatelessWidget {
           },
         ),
       ),
-      body: abonementsListFragment(),
+//      body: abonementsListFragment(),
+//      body: AbonementBuyFragment(),
+      body: AbonementBuySelectedFragment(),
     );
   }
 }
