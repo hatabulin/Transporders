@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-const cardWidth = 360.0;
+const cardWidthAll = 320.0;
 const cardTransponderHeight = 100.0;
 const paddingCardTop = 20.0;
+const paddingCardOptionsTop = 10.0;
 const paddingCardItemList = 20.0;
-const optionsCardHeight = 170.0;
-const helpCardHeight = 110.0;
+const optionsCardHeight = 150.0;
+const helpCardHeight = 80.0;
 
 bool switchDeductSubscription = true;
 bool switchAutoScroll = true;
@@ -29,16 +30,17 @@ class _AbonementBuySelectedFragment extends State<AbonementBuySelectedFragment> 
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: _horizontalListView( context));
+    return Scaffold(body: makePage( context));
   }
 }
 
-Widget _horizontalListView(BuildContext context) {
+Widget makePage(BuildContext context) {
   return Column(
       children: <Widget>[
+        infoAbonement(),
 //        selectTransponder(),
         SizedBox(
-          width: cardWidth,
+          width: cardWidthAll+60,
           height: cardTransponderHeight,
           child:ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -47,14 +49,29 @@ Widget _horizontalListView(BuildContext context) {
         ),
         optionsAbonement(),
         costSubscription(),
-        helpBox()
+        helpBox(),
+        replenishAccount()
       ]);
+}
+
+Widget infoAbonement() {
+  return Container(
+      width: cardWidthAll ,
+      margin:const EdgeInsets.only( top: paddingCardTop),
+      child:Column(mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Text("Москва - Солнечногорск", textAlign: TextAlign.left,),
+          Text("10 поездок"),
+          Text("Выберите транспондер"),
+        ],
+      )
+  );
 }
 
 Widget itemList({Color color}) {
   return Container(
-      width: cardWidth,
-      child:Padding(padding: const EdgeInsets.only( left: paddingCardItemList, right: paddingCardItemList, top: paddingCardTop),
+      width: cardWidthAll ,
+      margin: const EdgeInsets.only(left: paddingCardItemList , top: paddingCardTop),
           child: Card(
             elevation: 15,
             shape: RoundedRectangleBorder(
@@ -73,15 +90,14 @@ Widget itemList({Color color}) {
                 ]
             ),
           )
-      ));
+      );
 }
 
 Widget optionsAbonement() {
   return Container(
-      width: cardWidth,
+      width: cardWidthAll,
       height: optionsCardHeight,
-      margin: EdgeInsets.only(top: 50),
-      child:Padding(padding: const EdgeInsets.only( left: paddingCardItemList, right: paddingCardItemList, top: paddingCardTop),
+      margin: const EdgeInsets.only( left: paddingCardItemList, right: paddingCardItemList, top: paddingCardOptionsTop),
       child: Card(
           elevation: 10,
           shape: RoundedRectangleBorder(
@@ -90,8 +106,6 @@ Widget optionsAbonement() {
           child: Column(
               children: <Widget>[
                 Container(
-                  width: cardWidth,
-                  margin: EdgeInsets.only(top: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -116,7 +130,6 @@ Widget optionsAbonement() {
                   ),
                 ),
                 Container(
-                  width: cardWidth,
                   margin: EdgeInsets.only(top: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -144,14 +157,13 @@ Widget optionsAbonement() {
                     ],
                   ),
                 ),
-              ]))));
+              ])));
 }
 
 Widget costSubscription() {
   return Container(
-      width: cardWidth,
-      margin: EdgeInsets.only(top: 20),
-      child:Padding(padding: const EdgeInsets.only(left:20),
+      width: cardWidthAll,
+      margin: const EdgeInsets.only( left: paddingCardItemList, right: paddingCardItemList, top: paddingCardOptionsTop),
           child: Row(
             children: <Widget>[
               Text("1000",style: TextStyle(fontSize: 52, fontFamily: 'bold')),
@@ -173,15 +185,14 @@ Widget costSubscription() {
                   )
               )
             ],
-          )));
+          ));
 }
 
 Widget helpBox() {
   return Container(
-      width: cardWidth,
+    width: cardWidthAll,
       height: helpCardHeight,
-      child:Padding(
-        padding: const EdgeInsets.only(right: paddingCardItemList, left: paddingCardItemList, top: paddingCardTop, bottom: 10),
+      margin: const EdgeInsets.only(right: paddingCardItemList, left: paddingCardItemList, top: paddingCardTop, bottom: 10),
         child: Card(
           elevation: 15,
           shape: RoundedRectangleBorder(
@@ -193,14 +204,39 @@ Widget helpBox() {
               Padding(child:Icon(Icons.sentiment_very_dissatisfied),padding: EdgeInsets.only(left: 10)),
               Row(
                   children: <Widget>[
-                    Container(width:150,child:Text("Для покупки на вашем счёте не хватает 900", style: TextStyle(fontSize: 12))),
-                    Padding(padding: EdgeInsets.only(top: 20), child:Icon(Icons.euro_symbol, size: 15,))
+                    Container(width:150,child:Padding(padding: EdgeInsets.only(left: 10),child:Text("Для покупки на вашем счёте не хватает 900", style: TextStyle(fontSize: 12)))),
+                    Padding(padding: EdgeInsets.only(top: 15), child:Icon(Icons.euro_symbol, size: 15,))
                   ]),
-              Padding(padding: EdgeInsets.only(left: 50),child:Icon(Icons.warning, size: 15,))
+              Padding(padding: EdgeInsets.only(left: 80, bottom: 30),child:Icon(Icons.warning, size: 25, color: new Color.fromRGBO(0, 0, 0, 0.1)))
             ],
           ),
         ),
-      ));
+      );
+}
+
+Widget replenishAccount() {
+  return  Container(
+    width: cardWidthAll,
+      height: 50,
+      margin: const EdgeInsets.only( left: paddingCardItemList, right: paddingCardItemList, top: 10),
+        child: FlatButton(
+          child: Text(
+            "ПОПОЛНИТЬ СЧЁТ",
+            style: TextStyle(
+              fontSize: 16.0,
+              color: Colors.white,
+              fontFamily: 'Bold',
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          textColor: Colors.white,
+          color: Colors.greenAccent,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          onPressed: () {
+//        callback();
+          },
+        ),
+      );
 }
 
 Widget selectTransponder({Color color}) {
