@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:transporderapp/styles/appStyles.dart';
-import 'file:///D:/work/development/AndroidStudio/Projects/transporder_app/lib/ui/abonements/abonementsListFragment.dart';
 import 'package:transporderapp/ui/abonements/abonementBuyFragment.dart';
 import 'package:transporderapp/ui/abonements/abonementBuySelectedFragment.dart';
 
@@ -40,7 +39,7 @@ class TransponderScreen extends StatelessWidget {
       ),
 //      body: abonementsListFragment(),
 //      body: AbonementBuyFragment(),
-      body: AbonementBuySelectedFragment(),
+      body: SeasonBuySelectedFragment(Colors.black, Colors.grey),
     );
   }
 }
