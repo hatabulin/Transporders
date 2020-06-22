@@ -73,7 +73,7 @@ Widget itemList({Color color}) {
                   margin: EdgeInsets.only(top:10),
                   alignment: Alignment.topCenter,
                   child: Text(
-                    "Шереметьево 1/2-Солнечногорск",
+                    "Луцк 1/2 Ровно",
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
