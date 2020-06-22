@@ -86,7 +86,7 @@ class SeasonBuySelectedFragmentState extends State<SeasonBuySelectedFragment> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Text(
-              "Москва - Солнечногорск",
+              "Луцк 1/2 Ровно",
               textAlign: TextAlign.left,
             ),
             Text("10 поездок"),
