@@ -11,7 +11,7 @@ const verticalSizedBoxHeight = 350.0;
 const textMargin = 20.0;
 
 bool checkBoxValue = false;
-List _routes = ["Шереметьево 1/2 Солнечногорск", "Вязники 1/2 Мстёра"];
+List _routes = ["Луцк 1/2 Ровно", "Киев 1/2 Винница"];
 
 List<DropdownMenuItem<String>> _dropDownMenuItems;
 String _currentRoute;
@@ -81,7 +81,7 @@ Widget itemList({Color color}) {
             color: Colors.deepPurple,
             child: Column(
                 children: <Widget>[
-                  Padding(child:Text("Шереметьево 1/2 Солнечногорск", style:TextStyle(fontSize: 16, color: Colors.white)),padding: const EdgeInsets.only(top:10)),
+                  Padding(child:Text("Луцк 1/2 Ровно", style:TextStyle(fontSize: 16, color: Colors.white)),padding: const EdgeInsets.only(top:10)),
                   Padding(child:Container(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
